@@ -255,11 +255,11 @@ export default function createPostGraphileHttpRequestHandler(
     // Convert koa body to connect-compatible body
     convertKoaBodyParserToConnect,
     // Parse JSON bodies.
-    bodyParser.json({ limit: options.bodySizeLimit }),
+    bodyParser.json({ limit: '10mb' }),
     // Parse URL encoded bodies (forms).
-    bodyParser.urlencoded({ extended: false, limit: options.bodySizeLimit }),
+    bodyParser.urlencoded({ extended: false, limit: '10mb' }),
     // Parse `application/graphql` content type bodies as text.
-    bodyParser.text({ type: 'application/graphql', limit: options.bodySizeLimit }),
+    bodyParser.text({ type: 'application/graphql', limit: '10mb' }),
   ];
 
   // We'll turn this into one function now so it can be better JIT optimised
